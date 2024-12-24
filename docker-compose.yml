@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  python_time:
+    build: .
+    container_name: python_time
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_ENV=development
+    command: ["sh", "-c", "service nginx start && python /app/app.py"]
+
